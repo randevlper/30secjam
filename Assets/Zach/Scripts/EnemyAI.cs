@@ -44,5 +44,6 @@ public class EnemyAI : MonoBehaviour, IDamageable {
     {
         health -= hit.damage;
         healthUI.value = (health / maxHealth);
+        Debug.Log("did a thing");
     }
 }

@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224030812719841896}
   - component: {fileID: 114736530869049160}
+  - component: {fileID: 114595640677133502}
   m_Layer: 5
   m_Name: EnemyHealth
   m_TagString: Untagged
@@ -145,6 +146,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114595640677133502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518753990756560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412530cfca7bdf443b9b446610054c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!114 &114736530869049160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,7 +201,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
