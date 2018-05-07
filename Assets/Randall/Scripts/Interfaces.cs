@@ -4,8 +4,8 @@ using UnityEngine;
 
 public struct HitData
 {
-	float damage;
-	GameObject other;
+	public float damage;
+	public GameObject other;
 
 	public HitData(GameObject you, float dam)
 	{
