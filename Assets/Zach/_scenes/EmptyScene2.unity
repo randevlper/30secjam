@@ -162,6 +162,11 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1121043764}
+    - target: {fileID: 50171220902228232, guid: b2ca340303142ee499033738976171f5,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2ca340303142ee499033738976171f5, type: 2}
   m_IsPrefabParent: 0

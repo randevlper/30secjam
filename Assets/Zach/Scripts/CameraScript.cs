@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
 
-    void Start()
+    void Awake()
     {
         if (ServiceLocator.instance.cam == null)
         {
