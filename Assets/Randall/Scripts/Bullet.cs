@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Gold;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
@@ -10,34 +10,29 @@ public class Bullet : MonoBehaviour {
 	public Timer timer;
 	public float life;
 
-	void Awake()
-	{
-		timer = new Timer(Disable,life);	
+	void Awake () {
+		timer = new Timer (Disable, life);
 	}
 
-	void Disable()
-	{
-		gameObject.SetActive(false);
-		timer.Stop();
+	void Disable () {
+		gameObject.SetActive (false);
+		timer.Stop ();
 	}
 
-	private void Update() {
-		timer.Tick(Time.deltaTime);
+	private void Update () {
+		timer.Tick (Time.deltaTime);
 	}
 
-	public void Fire(Vector2 pos, Vector2 dir, float speed)
-	{
+	public void Fire (Vector2 pos, Vector2 dir, float speed) {
 		transform.position = pos;
 		rb2D.velocity = dir * speed;
-		timer.Start();
+		timer.Start ();
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		IDamageable damageable = other.GetComponent<IDamageable>();
-		if(damageable != null)
-		{
-			damageable.Damage(new HitData(gameObject,damage));
+	void OnCollisionEnter2D (Collision2D collisionInfo) {
+		IDamageable damageable = collisionInfo.gameObject.GetComponent<IDamageable> ();
+		if (damageable != null) {
+			damageable.Damage (new HitData (gameObject, damage));
 		}
 	}
 }
