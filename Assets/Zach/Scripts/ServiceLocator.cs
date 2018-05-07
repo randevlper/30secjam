@@ -7,6 +7,7 @@ public class ServiceLocator : MonoBehaviour {
     public static ServiceLocator instance;
 
     public Camera cam;
+    public Canvas canvas;
 
     void Awake()
     {
