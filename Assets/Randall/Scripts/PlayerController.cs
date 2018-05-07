@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb2D;
     public Vector2 directionalInput;
-
     public float speed;
 
     // Use this for initialization
