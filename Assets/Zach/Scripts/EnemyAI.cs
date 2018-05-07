@@ -26,12 +26,15 @@ public class EnemyAI : MonoBehaviour, IDamageable {
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
         IDamageable Damageable = collisionInfo.otherCollider.GetComponent<IDamageable>();
-        if (collisionInfo.otherCollider.tag == "Player")
+        if (collisionInfo.gameObject.tag == "Player")
         {
             Damageable.Damage(new HitData(gameObject, damage));
             Debug.Log("worked");
         }
-        Debug.Log("not worked");
+        else
+        {
+            Debug.Log("not worked");
+        }
     }
 
     public void Damage(HitData hit)
