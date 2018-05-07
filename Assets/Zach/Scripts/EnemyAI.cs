@@ -10,15 +10,28 @@ public class EnemyAI : MonoBehaviour, IDamageable {
     public float maxHealth = 20f;
     public float health = 20f;
     public float damage = 5f;
-    public Slider healthUI;
+    public GameObject healthUI;
 
     private Rigidbody2D rb;
+    Slider myHealthUI;
+
+    Canvas canvas;
 
     void Start()
     {
+        //service locator
+        canvas = ServiceLocator.instance.canvas;
+
+        //rigidbody
         rb = GetComponent<Rigidbody2D>();
-        healthUI.interactable = false;
-        healthUI.value = 1;
+
+        //health UI 
+        GameObject healthUIGameObject = Instantiate(healthUI, canvas.transform);
+        myHealthUI = healthUIGameObject.GetComponent<Slider>();
+        myHealthUI.GetComponent<EnemyHealth>().target = this.gameObject;
+        myHealthUI.interactable = false;
+        myHealthUI.value = 1;
+
     }
 
     void FixedUpdate()
@@ -43,6 +56,33 @@ public class EnemyAI : MonoBehaviour, IDamageable {
     public void Damage(HitData hit)
     {
         health -= hit.damage;
-        healthUI.value = (health / maxHealth);
+        myHealthUI.value = (health / maxHealth);
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+            myHealthUI.gameObject.SetActive(false);
+        }
+    }
+
+    public void SetHealth(float value)
+    {
+        if (value > maxHealth)
+        {
+            value = maxHealth;
+        }
+
+        health = value;
+        myHealthUI.value = value / maxHealth;
+    }
+
+    public void OnEnable()
+    {
+        SetHealth(maxHealth);
+        myHealthUI.gameObject.SetActive(true);
+    }
+
+    public void Setup(GameObject target)
+    {
+        this.target = target;
     }
 }
