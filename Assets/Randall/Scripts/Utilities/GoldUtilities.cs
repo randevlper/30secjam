@@ -23,6 +23,11 @@ namespace Gold
             get { return isTicking; }
         }
 
+        public float RemainingTime
+        {
+            get{return _time;}
+        }
+
         public Timer(System.Action action, float time, bool loop = false)
         {
             methodToCall = action;
