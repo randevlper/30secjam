@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4730820387867320}
   - component: {fileID: 212749219856523800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4952713278428664}
   - component: {fileID: 114420693681921600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4432825900869360}
   - component: {fileID: 58810231249550176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4779136847155640}
   - component: {fileID: 50872714611003342}
   - component: {fileID: 114406378662603154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: _Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,6 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef927b64f89a9d749986596f37411280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCamera: {fileID: 0}
+  bulletPrefab: {fileID: 1155241619951610, guid: aefa00668d0c7b04b92e17b7762bd754,
+    type: 2}
+  bulletSpeed: 50
 --- !u!212 &212749219856523800
 SpriteRenderer:
   m_ObjectHideFlags: 1
