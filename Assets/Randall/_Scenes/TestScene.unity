@@ -413,6 +413,28 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 752765947}
+--- !u!1 &773116746 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1068180666469170, guid: 1b11f7914d6ce5c4bb0cbbab8830bf96,
+    type: 2}
+  m_PrefabInternal: {fileID: 944233736}
+--- !u!95 &773116749
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 773116746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8a47e0f8f8eafa42963cfc6d26a1341, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &944233736
 Prefab:
   m_ObjectHideFlags: 0
@@ -585,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 752088881}
+  currentVelocity: {x: 0, y: 0, z: 0}
   smoothTime: 0.1
   maxSpeed: 75
 --- !u!1 &1119394341
