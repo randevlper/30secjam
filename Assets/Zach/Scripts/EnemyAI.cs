@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using Pathfinding;
 using UnityEngine.UI;
+using Gold;
+
 
 [RequireComponent (typeof (Rigidbody2D))]
 public class EnemyAI : MonoBehaviour, IDamageable {
@@ -10,12 +12,18 @@ public class EnemyAI : MonoBehaviour, IDamageable {
     public float maxHealth = 20f;
     public float health = 20f;
     public float damage = 5f;
+    public float attackSpeed = 2f;
+    public float attackRange = 1f;
     public GameObject healthUI;
 
     private Rigidbody2D rb;
     Slider myHealthUI;
+    
+    bool isAbleToAttack;
 
     Canvas canvas;
+
+    Timer attackTimer;
 
     void Start()
     {
@@ -24,6 +32,9 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
         //rigidbody
         rb = GetComponent<Rigidbody2D>();
+
+        attackTimer = new Timer(SetAttack, attackSpeed, false);
+        attackTimer.Start();
 
         //health UI 
         GameObject healthUIGameObject = Instantiate(healthUI, canvas.transform);
@@ -34,6 +45,26 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
     }
 
+    void Update()
+    {
+        if (isAbleToAttack)
+        {
+            if (Vector3.Distance(target.transform.position, transform.position) < attackRange)
+            {
+                IDamageable damageable = target.GetComponent<IDamageable>();
+                damageable.Damage(new HitData(gameObject, damage));
+                Debug.Log("enemy is attacking at a range");
+                attackTimer.Reset();
+                attackTimer.Start();
+                isAbleToAttack = false;
+            }
+        }
+        else
+        {
+            attackTimer.Tick(Time.deltaTime);
+        }
+    }
+
     void FixedUpdate()
     {
         Vector2 temp = (target.transform.position - transform.position);
@@ -41,18 +72,16 @@ public class EnemyAI : MonoBehaviour, IDamageable {
         rb.velocity = temp * speed;
     }
 
-    void OnCollisionEnter2D(Collision2D collisionInfo)
+    void SetAttack()
     {
-        if (collisionInfo.gameObject.tag == "Player")
-        {
-            IDamageable Damageable = collisionInfo.gameObject.GetComponent<IDamageable>();
-            if (Damageable != null)
-            {
-                Damageable.Damage(new HitData(gameObject, damage));
-            }
-        }
+        isAbleToAttack = true;
     }
 
+    void CheckAttack()
+    {
+        
+    }
+    
     public void Damage(HitData hit)
     {
         health -= hit.damage;
@@ -77,12 +106,21 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
     public void OnEnable()
     {
-        SetHealth(maxHealth);
-        myHealthUI.gameObject.SetActive(true);
+        if (myHealthUI != null)
+        {
+            SetHealth(maxHealth);
+            myHealthUI.gameObject.SetActive(true);
+        }
     }
 
     public void Setup(GameObject target)
     {
         this.target = target;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
