@@ -14,9 +14,12 @@ public class Character : MonoBehaviour, IDamageable {
 
 	public float Health {
 		get { return health; }
-		set { 
-			onHealthChange(maxHealth/health);
-			health = value; }
+		set {
+			if (onHealthChange != null) {
+				onHealthChange (maxHealth / health);
+			}
+			health = value;
+		}
 	}
 	public float maxHealth = 100f;
 
