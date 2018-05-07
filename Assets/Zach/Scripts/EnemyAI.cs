@@ -36,6 +36,6 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
     public void Damage(HitData hit)
     {
-        //health -= hit.damage;
+        health -= hit.damage;
     }
 }
