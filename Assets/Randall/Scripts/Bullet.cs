@@ -30,9 +30,12 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D collisionInfo) {
+		
 		IDamageable damageable = collisionInfo.gameObject.GetComponent<IDamageable> ();
 		if (damageable != null) {
+			// /Debug.Log(damageable);
 			damageable.Damage (new HitData (gameObject, damage));
+			gameObject.SetActive(false);
 		}
 	}
 }
