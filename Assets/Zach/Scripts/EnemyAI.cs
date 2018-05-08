@@ -13,17 +13,20 @@ public class EnemyAI : MonoBehaviour, IDamageable {
     public float health = 20f;
     public float damage = 5f;
     public float attackSpeed = 2f;
-    public float attackRange = 1f;
+    public float attackRange = 2f;
+    public float attackPauseTime = 0.5f;
     public GameObject healthUI;
 
     private Rigidbody2D rb;
     Slider myHealthUI;
     
-    bool isAbleToAttack;
-
     Canvas canvas;
 
     Timer attackTimer;
+    Timer attackPause;    
+    public bool isAbleToAttack;
+    public bool isAttacking;
+    public bool attackingNextFrame;
 
     void Start()
     {
@@ -35,6 +38,7 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
         attackTimer = new Timer(SetAttack, attackSpeed, false);
         attackTimer.Start();
+        attackPause = new Timer(SetStateToAttack, attackPauseTime, false);
 
         //health UI 
         GameObject healthUIGameObject = Instantiate(healthUI, canvas.transform);
@@ -45,19 +49,36 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
     }
 
+    void SetStateToAttack()
+    {
+        isAttacking = false;
+        attackingNextFrame = true;
+    }
+
     void Update()
     {
         if (isAbleToAttack)
         {
             if (Vector3.Distance(target.transform.position, transform.position) < attackRange)
             {
-                IDamageable damageable = target.GetComponent<IDamageable>();
-                damageable.Damage(new HitData(gameObject, damage));
-                Debug.Log("enemy is attacking at a range");
-                attackTimer.Reset();
-                attackTimer.Start();
                 isAbleToAttack = false;
+                isAttacking = true;
+                attackPause.Start();
             }
+        }
+        else if (isAttacking)
+        {
+            attackPause.Tick(Time.deltaTime);
+        }
+        else if(attackingNextFrame)
+        {
+            IDamageable damageable = target.GetComponent<IDamageable>();
+            damageable.Damage(new HitData(gameObject, damage));
+            Debug.Log("enemy is attacking at a range");
+            attackTimer.Reset();
+            attackTimer.Start();
+            attackPause.Reset();
+            attackingNextFrame = false;
         }
         else
         {
@@ -67,9 +88,16 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
     void FixedUpdate()
     {
-        Vector2 temp = (target.transform.position - transform.position);
-        temp.Normalize();
-        rb.velocity = temp * speed;
+        if (!isAttacking)
+        {
+            Vector2 temp = (target.transform.position - transform.position);
+            temp.Normalize();
+            rb.velocity = temp * speed;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     void SetAttack()
