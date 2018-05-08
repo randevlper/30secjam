@@ -97,7 +97,7 @@ public class EnemyAI : MonoBehaviour {
     }
 
     public void OnHit (HitData hit) {
-        myHealthUI.value = (character.Health / character.maxHealth);
+        myHealthUI.value = (character.Health / character.MaxHealth);
     }
 
     void Death () {
@@ -113,7 +113,7 @@ public class EnemyAI : MonoBehaviour {
         if (myHealthUI != null) {
             myHealthUI.gameObject.SetActive (true);
         }
-        character.Health = character.maxHealth;
+        character.Health = character.MaxHealth;
     }
 
     public void Setup (GameObject target) {
