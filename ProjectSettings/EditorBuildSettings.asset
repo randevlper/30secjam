@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Randall/_Scenes/MainMenu.unity
+    guid: febe12d3963f9a84694c0eb896af7b99
+  - enabled: 1
+    path: Assets/Randall/_Scenes/TestScene.unity
+    guid: a461a86eda2fa414e92425af1f52aa2d
