@@ -8,7 +8,7 @@ public class PlayerHealthUI : MonoBehaviour {
 	public Character character;
 
 	private void Awake() {
-		character.onHealthChange = UpdateSliderValue;
+		character.onHealthChange += UpdateSliderValue;
 	}
 	void UpdateSliderValue(float percentHealth)
 	{
