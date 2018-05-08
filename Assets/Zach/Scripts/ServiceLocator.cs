@@ -8,6 +8,7 @@ public class ServiceLocator : MonoBehaviour {
 
     public Camera cam;
     public Canvas canvas;
+    public AudioSpawner audioManager;
 
     void Awake()
     {
