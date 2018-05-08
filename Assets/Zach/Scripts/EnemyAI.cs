@@ -111,9 +111,9 @@ public class EnemyAI : MonoBehaviour {
 
     public void OnEnable () {
         if (myHealthUI != null) {
-            SetHealthUI (character.maxHealth);
             myHealthUI.gameObject.SetActive (true);
         }
+        character.Health = character.maxHealth;
     }
 
     public void Setup (GameObject target) {

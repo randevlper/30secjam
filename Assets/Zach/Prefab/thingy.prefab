@@ -32,7 +32,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4441456772405734
 Transform:
   m_ObjectHideFlags: 1
@@ -145,7 +145,6 @@ MonoBehaviour:
   healthUI: {fileID: 1518753990756560, guid: c9568c36aa3a1c94093c64bc71052e6f, type: 2}
   isAbleToAttack: 0
   isAttacking: 0
-  attackingNextFrame: 0
 --- !u!212 &212213835354130798
 SpriteRenderer:
   m_ObjectHideFlags: 1

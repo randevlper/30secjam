@@ -9,7 +9,8 @@ public class GunController : MonoBehaviour {
     public GameObject bulletPrefab;
     public PlayerData playerData;
 
-    public float cooldownAuto;
+    public float cooldownAutoBase;
+    float cooldownAuto;
     bool canShoot = true;
     Timer cooldownTimer;
 
@@ -22,6 +23,7 @@ public class GunController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        cooldownAuto = cooldownAutoBase;
         cooldownTimer = new Timer(CanShoot,cooldownAuto);
         bullets = new ObjectPool (bulletPrefab, 5, true);
         currentCamera = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera> ();
@@ -43,22 +45,22 @@ public class GunController : MonoBehaviour {
     void Update () {
         cooldownTimer.Tick(Time.deltaTime);
         if (isFullAuto && canShoot) {
+            cooldownAuto = playerData.fireSpeedMult * cooldownAutoBase;
+            cooldownTimer.length = cooldownAuto;
             if (Input.GetButton ("Fire1")) {
                 FireBullet (currentCamera.ScreenToWorldPoint (Input.mousePosition));
                 Cooldown();
-            }
-        } else {
-            if (Input.GetButtonDown ("Fire1")) {
-                FireBullet (currentCamera.ScreenToWorldPoint (Input.mousePosition));
             }
         }
     }
 
     void FireBullet (Vector2 position) {
+        if(!canShoot){return;}
         GameObject spawnedObject = bullets.Get ();
         Bullet spawnedBullet = spawnedObject.GetComponent<Bullet> ();
         spawnedBullet.damage = damage * playerData.damageMult;
         spawnedObject.SetActive (true);
         spawnedBullet.Fire (transform.position, (position - (Vector2) transform.position).normalized, bulletSpeed);
+        canShoot = false;
     }
 }

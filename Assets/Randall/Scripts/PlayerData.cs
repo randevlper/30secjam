@@ -21,7 +21,7 @@ public class PlayerData : MonoBehaviour {
 	public float healthMult = 1.0f;
 
 	public bool CanBuy (int value) {
-		if (value >= points) {
+		if (points >= value) {
 			return true;
 		} else {
 			return false;
