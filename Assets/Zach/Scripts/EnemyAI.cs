@@ -26,6 +26,12 @@ public class EnemyAI : MonoBehaviour {
     public bool isAbleToAttack;
     public bool isAttacking;
 
+    //sounds
+    public AudioClip soundAttack;
+    public AudioClip soundHit;
+    public AudioClip soundDeath;
+    AudioSpawner audioManager;
+
     void Start () {
         //character
         character.onHit += OnHit;
@@ -48,6 +54,8 @@ public class EnemyAI : MonoBehaviour {
         myHealthUI.interactable = false;
         myHealthUI.value = 1;
 
+        //sounds
+        audioManager = ServiceLocator.instance.audioManager;
     }
 
     public void StopAttacking () {
@@ -66,6 +74,7 @@ public class EnemyAI : MonoBehaviour {
     public void CanAttack () {
         if (Vector3.Distance (target.transform.position, transform.position) < attackRange && !isAttacking) {
             Attack ();
+            audioManager.Play(soundAttack, transform.position);
         }
     }
 
@@ -98,9 +107,11 @@ public class EnemyAI : MonoBehaviour {
 
     public void OnHit (HitData hit) {
         myHealthUI.value = (character.Health / character.MaxHealth);
+        audioManager.Play(soundHit, transform.position);
     }
 
     void Death () {
+        audioManager.Play(soundDeath, transform.position);
         gameObject.SetActive (false);
         myHealthUI.gameObject.SetActive (false);
     }
