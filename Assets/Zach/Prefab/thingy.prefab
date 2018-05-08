@@ -104,7 +104,13 @@ MonoBehaviour:
   maxHealth: 20
   health: 20
   damage: 5
+  attackSpeed: 2
+  attackRange: 2
+  attackPauseTime: 0.5
   healthUI: {fileID: 1518753990756560, guid: c9568c36aa3a1c94093c64bc71052e6f, type: 2}
+  isAbleToAttack: 0
+  isAttacking: 0
+  attackingNextFrame: 0
 --- !u!212 &212213835354130798
 SpriteRenderer:
   m_ObjectHideFlags: 1
