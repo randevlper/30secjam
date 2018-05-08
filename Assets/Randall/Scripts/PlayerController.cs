@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
         float lookAngle = Vector2.SignedAngle(
                 Vector2.right,
                 (currentCamera.ScreenToWorldPoint (Input.mousePosition)- transform.position).normalized);
-        transform.rotation = Quaternion.Euler(0,0,lookAngle);
+        transform.rotation = Quaternion.Euler(0,0,lookAngle - 90);
         //
     }
 }
