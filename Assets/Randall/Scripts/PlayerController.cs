@@ -23,11 +23,10 @@ public class PlayerController : MonoBehaviour {
         directionalInput.x = Input.GetAxisRaw ("Horizontal");
         directionalInput.y = Input.GetAxisRaw ("Vertical");
 
-        // Vector3 newRotation = transform.eulerAngles;
-        // newRotation.z  = Vector2.SignedAngle(transform.right,currentCamera.ScreenToWorldPoint (Input.mousePosition));
-        // transform.eulerAngles = newRotation;
-        // Debug.Log(newRotation);
-        
+        float lookAngle = Vector2.SignedAngle(
+                Vector2.right,
+                (currentCamera.ScreenToWorldPoint (Input.mousePosition)- transform.position).normalized);
+        transform.rotation = Quaternion.Euler(0,0,lookAngle - 90);
         //
     }
 }

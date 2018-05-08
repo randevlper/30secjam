@@ -15,10 +15,10 @@ public class Character : MonoBehaviour, IDamageable {
 	public float Health {
 		get { return health; }
 		set {
-			if (onHealthChange != null) {
-				onHealthChange (maxHealth / health);
-			}
 			health = value;
+			if (onHealthChange != null) {
+				onHealthChange (health/maxHealth);
+			}
 		}
 	}
 	public float maxHealth = 100f;
@@ -31,7 +31,8 @@ public class Character : MonoBehaviour, IDamageable {
 		if (onHit != null) {
 			onHit (hit);
 		}
-		health -= hit.damage;
+		//Debug.Log(name + " " + hit.damage);
+		Health -= hit.damage;
 		if (health <= 0f) {
 			if (onDeath != null) {
 				onDeath ();
