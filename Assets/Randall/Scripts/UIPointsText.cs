@@ -10,7 +10,7 @@ public class UIPointsText : MonoBehaviour {
 	public PlayerData playerData;
 
 	private void Start() {
-		playerData.OnPointChange = SetPoints;
+		playerData.OnPointChange += SetPoints;
 	}
 
 	public void SetPoints(int points)

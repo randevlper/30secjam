@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Gold.Delegates;
+
 public class PlayerPointShop : MonoBehaviour {
 
 	public Character playerCharacter;
@@ -35,14 +37,14 @@ public class PlayerPointShop : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha3)) {
 			if (playerData.CanBuy (DeamageIncreaseCost)) {
-				playerData.damageMult += DeamageIncrease;
+				playerData.DamageMult += DeamageIncrease;
 				playerData.Points -= DeamageIncreaseCost;
 				DeamageIncreaseCost *= 2;
 			}
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha4)) {
 			if (playerData.CanBuy (FireSpeedIncreaseCost)) {
-				playerData.fireSpeedMult -= FireSpeedIncrease;
+				playerData.FireSpeedMult -= FireSpeedIncrease;
 				playerData.Points -= FireSpeedIncreaseCost;
 				FireSpeedIncreaseCost *= 2;
 			}
