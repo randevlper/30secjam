@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 1372658326}
   - component: {fileID: 1372658325}
   - component: {fileID: 1372658327}
+  - component: {fileID: 1372658328}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -1215,6 +1216,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   canvas: {fileID: 0}
+  audioManager: {fileID: 0}
+--- !u!114 &1372658328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1372658324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cd2d444bb9e5e488e35fe676e7f65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundPrefab: {fileID: 1859428580687694, guid: 27e7da4f1e88e3d479e42c97d027fc88,
+    type: 2}
+  objectPoolSize: 56
 --- !u!1 &1391758155
 GameObject:
   m_ObjectHideFlags: 0

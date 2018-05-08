@@ -24,6 +24,7 @@ public class GunController : MonoBehaviour {
 
     public ValueChange<float> onDamageChange;
     public ValueChange<float> onCooldownChage;
+    public Inform onShoot;
 
     // Use this for initialization
     void Awake () {
@@ -76,6 +77,11 @@ public class GunController : MonoBehaviour {
 
     void FireBullet (Vector2 position) {
         if (!canShoot) { return; }
+
+        if (onShoot != null) {
+            onShoot ();
+        }
+
         GameObject spawnedObject = bullets.Get ();
         Bullet spawnedBullet = spawnedObject.GetComponent<Bullet> ();
         spawnedBullet.damage = damage * playerData.DamageMult;
