@@ -171,6 +171,8 @@ RectTransform:
   - {fileID: 1119394342}
   - {fileID: 324342919}
   - {fileID: 1261545856}
+  - {fileID: 497734285}
+  - {fileID: 1401401185}
   m_Father: {fileID: 543929808}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -243,6 +245,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a83081501ef8bad42aedd73b811ff514, type: 3}
   m_IsPrefabParent: 0
+--- !u!114 &236915321 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114420693681921600, guid: 1b11f7914d6ce5c4bb0cbbab8830bf96,
+    type: 2}
+  m_PrefabInternal: {fileID: 678242332}
+  m_Script: {fileID: 11500000, guid: ef927b64f89a9d749986596f37411280, type: 3}
 --- !u!1 &324342916
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +338,7 @@ GameObject:
   - component: {fileID: 497734287}
   - component: {fileID: 497734286}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Help
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,17 +350,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 497734284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 543929808}
-  m_RootOrder: 2
+  m_Father: {fileID: 192217534}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 269.5, y: 24}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 67.70001, y: 50}
+  m_SizeDelta: {x: 134.40002, y: 70.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497734286
 MonoBehaviour:
@@ -388,11 +396,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '1) Heal
 
-    2)
+    2) Increase Health
 
-    3)
+    3) Increase Damage
 
-    4) '
+    4) Increase Firerate'
 --- !u!222 &497734287
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -493,7 +501,6 @@ RectTransform:
   m_Children:
   - {fileID: 192217534}
   - {fileID: 1979379800}
-  - {fileID: 497734285}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1296,6 +1303,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1401401184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1401401185}
+  - component: {fileID: 1401401187}
+  - component: {fileID: 1401401186}
+  - component: {fileID: 1401401188}
+  m_Layer: 5
+  m_Name: Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1401401185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401401184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 192217534}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 251.20001, y: 8.700012}
+  m_SizeDelta: {x: 501.4, y: 18.399994}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1401401186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401401184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '| Health: 100/100 | Firerate: 0.7 | Damage: 5.0'
+--- !u!222 &1401401187
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401401184}
+--- !u!114 &1401401188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401401184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce093f5b20a75c54888b8b6dd82cb8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 515432161}
+  gun: {fileID: 236915321}
+  ui: {fileID: 1401401186}
+  healthFormat: '| Health: '
+  firerateFormat: '| Firerate:'
+  damageFormat: '| Damage:'
 --- !u!1 &1437210976
 GameObject:
   m_ObjectHideFlags: 0

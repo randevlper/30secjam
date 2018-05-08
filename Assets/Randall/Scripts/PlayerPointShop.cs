@@ -20,7 +20,7 @@ public class PlayerPointShop : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			if (playerData.CanBuy (HealCost)) {
-				playerCharacter.Health = playerCharacter.maxHealth;
+				playerCharacter.Health = playerCharacter.MaxHealth;
 				playerData.Points -= (int)(playerCharacter.Health / 10);
 			}
 		}
@@ -30,6 +30,7 @@ public class PlayerPointShop : MonoBehaviour {
 				playerData.healthMult += HealthIncrease;
 				playerData.Points -= HealthIncreaseCost;
 				HealthIncreaseCost *= 2;
+				playerCharacter.MaxHealth = playerData.healthMult * playerCharacter.baseMaxHealth;
 			}
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha3)) {
