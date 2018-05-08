@@ -5,7 +5,6 @@ using UnityEngine;
 public class AudioScript : MonoBehaviour {
 
     AudioSource myAudio;
-    public bool test;
 
     void Start()
     {
