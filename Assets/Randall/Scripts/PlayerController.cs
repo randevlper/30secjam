@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     Camera currentCamera;
     public Rigidbody2D rb2D;
+    public Character character;
     public Vector2 directionalInput;
     public float speed;
+
 
     // Use this for initialization
     void Start () {
