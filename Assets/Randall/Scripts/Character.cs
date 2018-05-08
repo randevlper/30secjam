@@ -9,8 +9,13 @@ public class Character : MonoBehaviour, IDamageable {
 	public ValueChange<HitData> onHit;
 
 	public ValueChange<float> onHealthChange;
+	//public ValueChange<float> onHealthChangeRaw;
 
 	private float health;
+
+	public float SetPrivateHealth{
+		set{health = value;}
+	}
 
 	public float Health {
 		get { return health; }

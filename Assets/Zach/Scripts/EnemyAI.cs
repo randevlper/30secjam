@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+﻿using Gold;
 using Pathfinding;
+using UnityEngine;
 using UnityEngine.UI;
-using Gold;
-
 
 [RequireComponent (typeof (Rigidbody2D))]
-public class EnemyAI : MonoBehaviour, IDamageable {
+public class EnemyAI : MonoBehaviour {
 
     public GameObject target;
     public float speed = 3f;
-    public float maxHealth = 20f;
-    public float health = 20f;
+    public Character character;
+    public Animator animator;
+
     public float damage = 5f;
     public float attackSpeed = 2f;
     public float attackRange = 2f;
@@ -19,136 +19,109 @@ public class EnemyAI : MonoBehaviour, IDamageable {
 
     private Rigidbody2D rb;
     Slider myHealthUI;
-    
+
     Canvas canvas;
 
     Timer attackTimer;
-    Timer attackPause;    
     public bool isAbleToAttack;
     public bool isAttacking;
-    public bool attackingNextFrame;
 
-    void Start()
-    {
+    void Start () {
+        //character
+        character.onHit += OnHit;
+        character.onDeath += Death;
+        character.onHealthChange += SetHealthUI;
+
         //service locator
         canvas = ServiceLocator.instance.canvas;
 
         //rigidbody
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D> ();
 
-        attackTimer = new Timer(SetAttack, attackSpeed, false);
-        attackTimer.Start();
-        attackPause = new Timer(SetStateToAttack, attackPauseTime, false);
+        attackTimer = new Timer (SetAttack, attackSpeed, false);
+        attackTimer.Start ();
 
         //health UI 
-        GameObject healthUIGameObject = Instantiate(healthUI, canvas.transform);
-        myHealthUI = healthUIGameObject.GetComponent<Slider>();
-        myHealthUI.GetComponent<EnemyHealth>().target = this.gameObject;
+        GameObject healthUIGameObject = Instantiate (healthUI, canvas.transform);
+        myHealthUI = healthUIGameObject.GetComponent<Slider> ();
+        myHealthUI.GetComponent<EnemyHealth> ().target = this.gameObject;
         myHealthUI.interactable = false;
         myHealthUI.value = 1;
 
     }
 
-    void SetStateToAttack()
-    {
+    public void StopAttacking () {
         isAttacking = false;
-        attackingNextFrame = true;
+        animator.SetBool ("IsAttacking", isAttacking);
     }
 
-    void Update()
-    {
-        if (isAbleToAttack)
-        {
-            if (Vector3.Distance(target.transform.position, transform.position) < attackRange)
-            {
-                isAbleToAttack = false;
-                isAttacking = true;
-                attackPause.Start();
-            }
-        }
-        else if (isAttacking)
-        {
-            attackPause.Tick(Time.deltaTime);
-        }
-        else if(attackingNextFrame)
-        {
-            IDamageable damageable = target.GetComponent<IDamageable>();
-            damageable.Damage(new HitData(gameObject, damage));
-            Debug.Log("enemy is attacking at a range");
-            attackTimer.Reset();
-            attackTimer.Start();
-            attackPause.Reset();
-            attackingNextFrame = false;
-        }
-        else
-        {
-            attackTimer.Tick(Time.deltaTime);
+    public void Attack () {
+        isAttacking = true;
+        animator.SetBool ("IsAttacking", isAttacking);
+        IDamageable damageable = target.GetComponent<IDamageable> ();
+        damageable.Damage (new HitData (gameObject, damage));
+        attackTimer.Start ();
+    }
+
+    public void CanAttack () {
+        if (Vector3.Distance (target.transform.position, transform.position) < attackRange && !isAttacking) {
+            Attack ();
         }
     }
 
-    void FixedUpdate()
-    {
-        if (!isAttacking)
-        {
-            Vector2 temp = (target.transform.position - transform.position);
-            temp.Normalize();
-            rb.velocity = temp * speed;
-        }
-        else
-        {
+    void Update () {
+        attackTimer.Tick (Time.deltaTime);
+        CanAttack ();
+    }
+
+    void SetRotation () {
+        float lookAngle = Vector2.SignedAngle (
+            Vector2.right,
+            (target.transform.position - transform.position).normalized);
+        transform.rotation = Quaternion.Euler (0, 0, lookAngle - 90);
+    }
+
+    void FixedUpdate () {
+        if (!isAttacking) {
+            Vector2 moveDir = (target.transform.position - transform.position);
+            moveDir.Normalize ();
+            rb.velocity = moveDir * speed;
+            SetRotation ();
+        } else {
             rb.velocity = Vector2.zero;
         }
     }
 
-    void SetAttack()
-    {
+    public void SetAttack () {
         isAbleToAttack = true;
     }
 
-    void CheckAttack()
-    {
-        
+    public void OnHit (HitData hit) {
+        myHealthUI.value = (character.Health / character.maxHealth);
     }
-    
-    public void Damage(HitData hit)
-    {
-        health -= hit.damage;
-        myHealthUI.value = (health / maxHealth);
-        if (health <= 0)
-        {
-            gameObject.SetActive(false);
-            myHealthUI.gameObject.SetActive(false);
+
+    void Death () {
+        gameObject.SetActive (false);
+        myHealthUI.gameObject.SetActive (false);
+    }
+
+    public void SetHealthUI (float value) {
+        myHealthUI.value = value;
+    }
+
+    public void OnEnable () {
+        if (myHealthUI != null) {
+            myHealthUI.gameObject.SetActive (true);
         }
+        character.Health = character.maxHealth;
     }
 
-    public void SetHealth(float value)
-    {
-        if (value > maxHealth)
-        {
-            value = maxHealth;
-        }
-
-        health = value;
-        myHealthUI.value = value / maxHealth;
-    }
-
-    public void OnEnable()
-    {
-        if (myHealthUI != null)
-        {
-            SetHealth(maxHealth);
-            myHealthUI.gameObject.SetActive(true);
-        }
-    }
-
-    public void Setup(GameObject target)
-    {
+    public void Setup (GameObject target) {
         this.target = target;
     }
 
-    void OnDrawGizmos()
-    {
+    void OnDrawGizmos () {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere (transform.position, attackRange);
     }
 }
