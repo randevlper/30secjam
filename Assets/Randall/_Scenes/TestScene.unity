@@ -601,12 +601,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 981342069}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03c4ca06df622504aabaeb2fd7a8ec62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 192217533}
+  target: {fileID: 752088881}
   smoothTime: 0.1
   maxSpeed: 75
 --- !u!1 &1119394341
