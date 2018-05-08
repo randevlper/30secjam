@@ -20,10 +20,12 @@ public class UIStats : MonoBehaviour {
 	float damage;
 
 
-	void Start()
+	void Awake()
 	{
 		playerCharacter.onHealthChangeRaw += SetHealth;
 		playerCharacter.onMaxHealthChangeRaw += SetMaxHealth;
+		gun.onCooldownChage += SetFirate;
+		gun.onDamageChange += SetDamage;
 	}
 
 	public void SetHealth(float value)
