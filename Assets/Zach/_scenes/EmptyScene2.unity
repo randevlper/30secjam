@@ -152,11 +152,6 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 2112326539}
-    - target: {fileID: 114865339378624156, guid: b2ca340303142ee499033738976171f5,
-        type: 2}
-      propertyPath: attackPauseTime
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2ca340303142ee499033738976171f5, type: 2}
   m_IsPrefabParent: 0
