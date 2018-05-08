@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioScript : MonoBehaviour {
+    public AudioSource myAudio;
 
-    AudioSource myAudio;
-
-    void Start()
-    {
-        myAudio = GetComponent<AudioSource>();
-    }
-
-    void FixedUpdate()
+    void Update()
     {
         if (!myAudio.isPlaying)
         {

@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 114936915120829674}
   - component: {fileID: 114446594347134174}
   - component: {fileID: 114998319932598958}
+  - component: {fileID: 114484464027350266}
   m_Layer: 8
   m_Name: _Player
   m_TagString: Player
@@ -232,9 +233,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 0
-  fireSpeedMult: 1
-  damageMult: 1
+  editorFireSpeedMult: 1
+  editorDamageMult: 1
   healthMult: 1
+--- !u!114 &114484464027350266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918099298794274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84535d63a95d6642a2f37708be91010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 114936915120829674}
+  playerGun: {fileID: 114420693681921600}
+  hit: {fileID: 8300000, guid: cf6bf53fdac7b2e44b6ea214b0f651ec, type: 3}
+  death: {fileID: 8300000, guid: 48b968ffbd26f3c459e6e530af54a2ab, type: 3}
+  shoot: {fileID: 8300000, guid: f7e43dc37136c074eb9d767cea077adc, type: 3}
 --- !u!114 &114936915120829674
 MonoBehaviour:
   m_ObjectHideFlags: 1
