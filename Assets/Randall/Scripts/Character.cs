@@ -9,12 +9,13 @@ public class Character : MonoBehaviour, IDamageable {
 	public ValueChange<HitData> onHit;
 
 	public ValueChange<float> onHealthChange;
-	//public ValueChange<float> onHealthChangeRaw;
+	public ValueChange<float> onHealthChangeRaw;
+	public ValueChange<float> onMaxHealthChangeRaw;
 
 	private float health;
 
-	public float SetPrivateHealth{
-		set{health = value;}
+	public float SetPrivateHealth {
+		set { health = value; }
 	}
 
 	public float Health {
@@ -22,13 +23,29 @@ public class Character : MonoBehaviour, IDamageable {
 		set {
 			health = value;
 			if (onHealthChange != null) {
-				onHealthChange (health/maxHealth);
+				onHealthChange (health / maxHealth);
+			}
+			if (onHealthChangeRaw != null) {
+				onHealthChangeRaw (health);
 			}
 		}
 	}
-	public float maxHealth = 100f;
+
+	public float MaxHealth{
+		get{return maxHealth;}
+		set{
+			maxHealth = value;
+			if(onMaxHealthChangeRaw != null){
+				onMaxHealthChangeRaw(maxHealth);
+			}
+		}
+	}
+
+	float maxHealth = 100f;
+	public float baseMaxHealth;
 
 	private void Start () {
+		MaxHealth = baseMaxHealth;
 		Health = maxHealth;
 	}
 
