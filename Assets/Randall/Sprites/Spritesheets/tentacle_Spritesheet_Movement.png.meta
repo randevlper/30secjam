@@ -1,32 +1,29 @@
 fileFormatVersion: 2
-guid: c3a843e4da100644d87fbd2c6ad12b02
-timeCreated: 1525734672
+guid: 80fd5fb18d7a1874eb1e3701b0f05bb0
+timeCreated: 1525801065
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: character_Runcycle_0
-    21300002: character_Runcycle_1
-    21300004: character_Runcycle_2
-    21300006: character_Runcycle_3
-    21300008: character_Runcycle_4
-    21300010: character_Runcycle_5
-    21300012: character_Runcycle_6
-    21300014: character_Runcycle_7
-    21300016: character_Runcycle_8
-    21300018: character_Runcycle_9
-    21300020: character_Runcycle_10
-    21300022: character_Runcycle_11
-    21300024: character_Runcycle_12
-    21300026: character_Runcycle_13
-    21300028: character_Runcycle_14
-    21300030: character_Runcycle_15
-    21300032: character_Runcycle_16
-    21300034: character_Runcycle_17
-    21300036: character_Runcycle_18
-    21300038: character_Runcycle_19
-    21300040: character_Runcycle_20
-    21300042: character_Runcycle_21
-    21300044: character_Runcycle_22
+    21300000: tentacle_Spritesheet_Movement_0
+    21300002: tentacle_Spritesheet_Movement_1
+    21300004: tentacle_Spritesheet_Movement_2
+    21300006: tentacle_Spritesheet_Movement_3
+    21300008: tentacle_Spritesheet_Movement_4
+    21300010: tentacle_Spritesheet_Movement_5
+    21300012: tentacle_Spritesheet_Movement_6
+    21300014: tentacle_Spritesheet_Movement_7
+    21300016: tentacle_Spritesheet_Movement_8
+    21300018: tentacle_Spritesheet_Movement_9
+    21300020: tentacle_Spritesheet_Movement_10
+    21300022: tentacle_Spritesheet_Movement_11
+    21300024: tentacle_Spritesheet_Movement_12
+    21300026: tentacle_Spritesheet_Movement_13
+    21300028: tentacle_Spritesheet_Movement_14
+    21300030: tentacle_Spritesheet_Movement_15
+    21300032: tentacle_Spritesheet_Movement_16
+    21300034: tentacle_Spritesheet_Movement_17
+    21300036: tentacle_Spritesheet_Movement_18
+    21300038: tentacle_Spritesheet_Movement_19
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -53,7 +50,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -68,7 +65,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 180
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -122,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_Runcycle_0
+      name: tentacle_Spritesheet_Movement_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,13 +127,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_1
+      name: tentacle_Spritesheet_Movement_1
       rect:
         serializedVersion: 2
         x: 540
@@ -144,13 +141,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_2
+      name: tentacle_Spritesheet_Movement_2
       rect:
         serializedVersion: 2
         x: 1080
@@ -158,13 +155,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_3
+      name: tentacle_Spritesheet_Movement_3
       rect:
         serializedVersion: 2
         x: 1620
@@ -172,13 +169,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_4
+      name: tentacle_Spritesheet_Movement_4
       rect:
         serializedVersion: 2
         x: 2160
@@ -186,13 +183,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_5
+      name: tentacle_Spritesheet_Movement_5
       rect:
         serializedVersion: 2
         x: 2700
@@ -200,13 +197,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_6
+      name: tentacle_Spritesheet_Movement_6
       rect:
         serializedVersion: 2
         x: 3240
@@ -214,13 +211,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_7
+      name: tentacle_Spritesheet_Movement_7
       rect:
         serializedVersion: 2
         x: 3780
@@ -228,13 +225,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_8
+      name: tentacle_Spritesheet_Movement_8
       rect:
         serializedVersion: 2
         x: 4320
@@ -242,27 +239,27 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_9
+      name: tentacle_Spritesheet_Movement_9
       rect:
         serializedVersion: 2
-        x: 4856
+        x: 4860
         y: 0
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_10
+      name: tentacle_Spritesheet_Movement_10
       rect:
         serializedVersion: 2
         x: 5400
@@ -270,13 +267,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_11
+      name: tentacle_Spritesheet_Movement_11
       rect:
         serializedVersion: 2
         x: 5940
@@ -284,13 +281,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_12
+      name: tentacle_Spritesheet_Movement_12
       rect:
         serializedVersion: 2
         x: 6480
@@ -298,13 +295,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_13
+      name: tentacle_Spritesheet_Movement_13
       rect:
         serializedVersion: 2
         x: 7020
@@ -312,13 +309,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_14
+      name: tentacle_Spritesheet_Movement_14
       rect:
         serializedVersion: 2
         x: 7560
@@ -326,13 +323,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_15
+      name: tentacle_Spritesheet_Movement_15
       rect:
         serializedVersion: 2
         x: 8100
@@ -340,13 +337,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_16
+      name: tentacle_Spritesheet_Movement_16
       rect:
         serializedVersion: 2
         x: 8640
@@ -354,13 +351,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_17
+      name: tentacle_Spritesheet_Movement_17
       rect:
         serializedVersion: 2
         x: 9180
@@ -368,13 +365,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_18
+      name: tentacle_Spritesheet_Movement_18
       rect:
         serializedVersion: 2
         x: 9720
@@ -382,13 +379,13 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: character_Runcycle_19
+      name: tentacle_Spritesheet_Movement_19
       rect:
         serializedVersion: 2
         x: 10260
@@ -396,49 +393,7 @@ TextureImporter:
         width: 540
         height: 540
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: character_Runcycle_20
-      rect:
-        serializedVersion: 2
-        x: 10800
-        y: 0
-        width: 540
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: character_Runcycle_21
-      rect:
-        serializedVersion: 2
-        x: 11340
-        y: 0
-        width: 540
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: character_Runcycle_22
-      rect:
-        serializedVersion: 2
-        x: 11880
-        y: 0
-        width: 540
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

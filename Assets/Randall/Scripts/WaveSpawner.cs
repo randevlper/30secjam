@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour {
 
 	public GameObject player;
+	public PlayerData playerData;
 	public Text timerText;
 	public Text waveCountText;
 	Timer timer;
@@ -43,7 +44,9 @@ public class WaveSpawner : MonoBehaviour {
 			spawnedObject.transform.position = spawnpoints[Random.Range (0, spawnpoints.Length)].position;
 			spawnedObject.SetActive (true);
 			EnemyAI spawnedAI = spawnedObject.GetComponent<EnemyAI>();
+			spawnedAI.character.Health = spawnedAI.character.maxHealth;
 			spawnedAI.target = player;
+			spawnedObject.GetComponent<PointsOnDisable>().playerData = playerData;
 		}
 	}
 
