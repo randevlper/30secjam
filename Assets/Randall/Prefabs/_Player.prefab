@@ -44,6 +44,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1701420391619332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4908212594861804}
+  - component: {fileID: 114973626368414676}
+  m_Layer: 8
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1894345210137062
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +89,6 @@ GameObject:
   - component: {fileID: 114936915120829674}
   - component: {fileID: 114446594347134174}
   - component: {fileID: 114998319932598958}
-  - component: {fileID: 114484464027350266}
   m_Layer: 8
   m_Name: _Player
   m_TagString: Player
@@ -120,8 +135,22 @@ Transform:
   - {fileID: 4730820387867320}
   - {fileID: 4952713278428664}
   - {fileID: 4432825900869360}
+  - {fileID: 4908212594861804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4908212594861804
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1701420391619332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4779136847155640}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4952713278428664
 Transform:
@@ -200,9 +229,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 50872714611003342}
-  character: {fileID: 0}
+  character: {fileID: 114936915120829674}
   directionalInput: {x: 0, y: 0}
   speed: 5
+  playerAudio: {fileID: 114973626368414676}
+  GFX: {fileID: 1068180666469170}
+  deathTime: 2
 --- !u!114 &114420693681921600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,22 +268,6 @@ MonoBehaviour:
   editorFireSpeedMult: 1
   editorDamageMult: 1
   healthMult: 1
---- !u!114 &114484464027350266
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918099298794274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e84535d63a95d6642a2f37708be91010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter: {fileID: 114936915120829674}
-  playerGun: {fileID: 114420693681921600}
-  hit: {fileID: 8300000, guid: cf6bf53fdac7b2e44b6ea214b0f651ec, type: 3}
-  death: {fileID: 8300000, guid: 48b968ffbd26f3c459e6e530af54a2ab, type: 3}
-  shoot: {fileID: 8300000, guid: f7e43dc37136c074eb9d767cea077adc, type: 3}
 --- !u!114 &114936915120829674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,6 +280,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
+--- !u!114 &114973626368414676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1701420391619332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84535d63a95d6642a2f37708be91010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 114936915120829674}
+  playerGun: {fileID: 114420693681921600}
+  hit: {fileID: 8300000, guid: 48c52ccc84a162642b32fc307142f9c9, type: 3}
+  death: {fileID: 8300000, guid: 48b968ffbd26f3c459e6e530af54a2ab, type: 3}
+  shoot: {fileID: 8300000, guid: f7e43dc37136c074eb9d767cea077adc, type: 3}
 --- !u!114 &114998319932598958
 MonoBehaviour:
   m_ObjectHideFlags: 1

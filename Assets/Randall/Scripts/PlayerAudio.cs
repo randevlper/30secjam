@@ -10,27 +10,27 @@ public class PlayerAudio : MonoBehaviour {
 	public AudioClip hit;
 	public AudioClip death;
 	public AudioClip shoot;
+	void OnHit (HitData hitData) {
+		ServiceLocator.instance.audioManager.Play (hit, transform.position);
+	}
 
-	// Use this for initialization
-	void Awake()
-	{
+	void OnDeath () {
+		ServiceLocator.instance.audioManager.Play (death, transform.position);
+	}
+
+	void OnShoot () {
+		ServiceLocator.instance.audioManager.Play (shoot, transform.position);
+	}
+
+	void OnEnable () {
 		playerCharacter.onDeath += OnDeath;
 		playerCharacter.onHit += OnHit;
 		playerGun.onShoot += OnShoot;
 	}
 
-	void OnHit(HitData hitData)
-	{
-		ServiceLocator.instance.audioManager.Play(hit,transform.position);
-	}
-
-	void OnDeath()
-	{
-		ServiceLocator.instance.audioManager.Play(death,transform.position);
-	}
-
-	void OnShoot()
-	{
-		ServiceLocator.instance.audioManager.Play(shoot,transform.position);
+	void OnDisable () {
+		playerCharacter.onDeath -= OnDeath;
+		playerCharacter.onHit -= OnHit;
+		playerGun.onShoot -= OnShoot;
 	}
 }
